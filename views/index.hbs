@@ -1,0 +1,37 @@
+<h1>{{name}}</h1>
+{{#if lastname}}
+  <h2>{{lastname}}</h2>
+{{else}}
+  <h2>I dont have a last name!</h2>
+{{/if}}
+
+<p>{{breed}}</p>
+<p>{{{description}}}</p>
+
+{{#unless lastname}}
+  <p>This shows when lastname is not sent.</p>
+{{/unless}}
+
+<ul>
+  {{#each characteristics}}
+
+    {{! this is a comment @index, @key, @first, @last }}
+    {{#if @first}}
+      <li><strong>{{this}}</strong></li>
+    {{else if @last}}
+      <li><h3>{{this}}</h3></li>
+    {{else}}
+      <li>{{this}}</li>
+    {{/if}}
+
+  {{else}}
+    <p>It has no characteristics!</p>
+  {{/each}}
+</ul>
+<img src='https://media.giphy.com/media/DhstvI3zZ598Nb1rFf/giphy.gif' />
+
+{{!-- {{address.street}} --}}
+{{!-- {{address.country}} --}}
+{{#with address}}
+  <p>{{street}}, {{country}}</p>
+{{/with}}
